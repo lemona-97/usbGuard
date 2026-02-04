@@ -7,8 +7,7 @@
 
 import Foundation
 
-// MARK: - Access Log
-struct AccessLog: Identifiable, Codable {
+struct AccessLog: Identifiable, Hashable, Codable {
     let id: UUID
     let device: USBDevice
     let timestamp: Date

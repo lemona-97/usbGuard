@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DevicePolicy: Identifiable, Codable {
+struct DevicePolicy: Identifiable, Hashable, Codable {
     let id: UUID
     var name: String
     var enabled: Bool

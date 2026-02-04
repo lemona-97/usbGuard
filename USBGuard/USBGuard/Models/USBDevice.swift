@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: - USB Device Model
 struct USBDevice: Identifiable, Codable, Hashable {
     let id: UUID
+    let physicalID: UInt64         // locationID or registryID
     let vendorID: UInt16          // USB Vendor ID
     let productID: UInt16         // USB Product ID
     let vendorName: String
@@ -34,6 +34,7 @@ struct USBDevice: Identifiable, Codable, Hashable {
 
 // MARK: - Device Class
 enum DeviceClass: String, Codable, CaseIterable {
+    case appleMobile = "Apple iOS Device" // iPhone, iPad
     case massStorage = "Mass Storage"
     case keyboard = "Keyboard"
     case mouse = "Mouse"
@@ -47,6 +48,7 @@ enum DeviceClass: String, Codable, CaseIterable {
     
     var icon: String {
         switch self {
+        case .appleMobile: return "apple.logo"
         case .massStorage: return "externaldrive.fill"
         case .keyboard: return "keyboard.fill"
         case .mouse: return "mouse.fill"
